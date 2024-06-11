@@ -1,0 +1,57 @@
+bal=5000
+cash=4000
+pin=1234
+ch='y'     
+while ch=='y' or ch=='Y':
+    print(" \n 1.Deposite \n 2. Withdraw \n 3. Bal enquiry \n 4. Pin change")
+    opt=int(input("Enter your choice: " ))
+    if opt==1:
+
+        print("Enter the amount to be deposited")
+        amt=int(input())
+        if(amt%100==0):
+                bal=bal+amt
+                print("Your current balance is=",bal)
+        else:
+            print("Enter the amount in multiples of 100")
+
+    elif opt==2:
+
+        print("Enter the amount to be deposited")
+        wamt=int(input())
+        if(wamt%100==0):
+            if(wamt<=bal):
+                if(wamt<=cash):
+                    bal=bal-wamt
+                    print("Your current balance is=",bal)
+                else:
+                    print("Insufficient cash available")
+            else:
+                print("Insufficient balance available")
+        else:
+            print("Enter the amount in multiples of 100")
+    elif opt==3:
+        
+        print("Your current balance is=",bal)
+
+    elif opt==4:
+        print("Enter the current pin")
+        cpin=int(input())
+        if(cpin==pin):
+            print("Enter the new pin")
+            npin1=int(input())
+            print("Enter the new pin number again:")
+            npin2=int(input())
+            if(npin1==npin2):
+                print("Pin change successful")
+                pin=npin1
+            else:
+                print("Pin change unsuccessful")
+        else:
+            print("Pin change unsuccessful")
+
+    else:
+        print("Please enter valid choice")
+
+    ch=input("Do you want to continue(y/n): ")
+    
